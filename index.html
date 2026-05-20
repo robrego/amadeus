@@ -19,17 +19,7 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
   body { font-family: 'Epilogue', sans-serif; background: var(--white); color: var(--black); }
-
-
-
-
-
-
-
-
-
 
   /* HERO */
   #hero {
@@ -56,15 +46,13 @@
   }
   .hero-h1 .italic { font-style: italic; font-weight: 300; color: var(--primary); }
   .hero-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; padding: 0 13px; border-top: 1px solid var(--gray-light); border-bottom: 1px solid var(--gray-light); }
-  @media (max-width: 768px) { .hero-stat:nth-child(4) { padding-left: 13px; } }
   .hero-stat { padding: 1.5rem 13px; }
-
   .hero-stat-label { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.4rem; }
   .hero-stat-value { font-size: 15px; font-weight: 500; }
 
   /* SECTIONS */
   section { border-bottom: 1px solid var(--gray-light); }
-  .section-header { display: grid; grid-template-columns: 120px 1fr; border-bottom: 1px solid var(--gray-light); padding: 1.5rem 3rem; align-items: center; }
+  .section-header { display: grid; grid-template-columns: 120px 1fr; border-bottom: 1px solid var(--gray-light); padding: 1.5rem 3rem; align-items: center; position: sticky; top: 0; backdrop-filter: blur(13px); background: rgba(255,255,255,0.9); z-index: 5; }
   .section-num { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
   .section-title { font-family: 'Epilogue', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
 
@@ -77,87 +65,76 @@
     border-bottom: 1px solid var(--gray-light);
     align-items: start;
     transition: background 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: grid;
   }
   .exp-row:last-child { border-bottom: none; }
   .exp-row:hover { background: #f9f9f9; }
   .exp-year { font-size: 13px; color: var(--gray); padding-top: 6px; }
   .exp-company { font-family: 'Epilogue', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-  .exp-role { font-size: 14px; color: var(--gray); margin-bottom: 1rem; margin-top: 0.5rem;}
+  .exp-role { font-size: 14px; color: var(--gray); margin-bottom: 1rem; margin-top: 0.5rem; }
   .exp-desc { font-size: 15px; color: #333; line-height: 1.7; font-weight: 300; max-width: 520px; }
   .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.25rem; }
   .tag { font-size: 13px; font-weight: 500; padding: 4px 13px; border-radius: 100px; border: 1px solid var(--gray-light); color: var(--gray); }
   .tag.red { border-color: var(--primary); color: var(--primary); }
-  .exp-img {
-    width: 100%; height: auto; border-radius: 8px;
-    background: var(--gray-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; color: var(--gray); text-align: center;
-    overflow: hidden;
-  }
+  .exp-img { width: 100%; height: auto; border-radius: 8px; background: var(--gray-light); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gray); text-align: center; overflow: hidden; }
   .exp-img img { width: 100%; height: auto; object-fit: contain; }
+  .exp-visit { display: inline-block; font-size: 13px; font-weight: 500; color: var(--primary); text-decoration: none; margin-bottom: 0.5rem; }
+  .exp-visit:hover { text-decoration: underline; }
 
   /* AI */
-  .ai-body { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 100vh; }
-  .ai-left { padding: 4rem; border-right: 1px solid var(--gray-light); display: flex; flex-direction: column; justify-content: center; gap: 2rem; }
+  .ai-body { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 80vh; }
+  .ai-left { padding: 4rem; border-right: 1px solid var(--gray-light); display: flex; flex-direction: column; justify-content: center; gap: 3rem; }
   .ai-right { padding: 4rem; background: var(--black); color: var(--white); display: flex; flex-direction: column; justify-content: center; }
-  .ai-step-num { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: var(--primary); text-transform: uppercase; margin-bottom: 0.4rem; }
-  .ai-step-title { font-family: 'Epilogue', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .ai-step-desc { font-size: 16px; color: var(--gray); line-height: 1.8; font-weight: 300; }
-  .ai-terminal-label { font-size: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.5rem; }
-  .terminal { font-family: 'Courier New', monospace; font-size: 16px; line-height: 2; color: rgba(255,255,255,0.6); }
+  .ai-step { display: flex; flex-direction: column; gap: 0.4rem; }
+  .ai-step-num { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: var(--primary); text-transform: uppercase; }
+  .ai-step-title { font-family: 'Epilogue', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--black); }
+  .ai-step-subtitle { font-size: 13px; color: var(--gray); font-weight: 500; margin-bottom: 0.25rem; }
+  .ai-step-desc { font-size: 15px; color: var(--gray); line-height: 1.75; font-weight: 300; }
+  .ai-terminal-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 2rem; }
+  .terminal { font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.9; color: rgba(255,255,255,0.55); }
   .terminal .g { color: #46d1b4; }
   .terminal .o { color: #f7a45a; }
   .terminal .w { color: rgba(255,255,255,0.9); }
   .terminal .d { color: rgba(255,255,255,0.25); }
-  .ai-link { display: inline-block; margin-top: 2.5rem; font-size: 13px; font-weight: 500; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; }
-  .ai-link:hover { border-color: white; }
+  .terminal-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0; }
+  .terminal-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 1.5rem; line-height: 1.6; font-family: 'Epilogue', sans-serif; }
 
   /* PROJECTS */
   .projects-grid { display: grid; grid-template-columns: 1fr 1fr; }
-  .project { padding: 3rem; border-right: 1px solid var(--gray-light); border-bottom: 1px solid var(--gray-light); transition: background 0.2s; }
+  .project {
+    padding: 3rem;
+    border-right: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+    transition: background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
   .project:nth-child(2n) { border-right: none; }
-  .project:last-child { border-bottom: none; border-right: none; grid-column: 1/-1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .project:last-child { border-bottom: none; border-right: none; grid-column: 1/-1; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 4rem 3rem; }
   .project:hover { background: #f9f9f9; }
-  .project-img { width: 100%; height: auto; border-radius: 8px; background: var(--gray-light); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gray); overflow: hidden; }
-  .project-img img { width: 100%; height: auto; object-fit: contain; }
-  .project-name { font-family: 'Epilogue', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
-  .project-desc { font-size: 15px; color: var(--gray); line-height: 1.7; font-weight: 300; margin-bottom: 1.25rem; }
-  .project-footer { display: flex; align-items: center; justify-content: space-between; }
+  .project-img { width: 100%; height: auto; border-radius: 10px; background: var(--gray-light); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gray); overflow: hidden; }
+  .project-img img { width: 100%; height: auto; object-fit: contain; border-radius: 10px; }
+  .project-content { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+  .project-name { font-family: 'Epilogue', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+  .project-desc { font-size: 15px; color: var(--gray); line-height: 1.75; font-weight: 300; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.5rem; }
   .project-link { font-size: 14px; font-weight: 500; color: var(--primary); text-decoration: none; }
   .project-link:hover { text-decoration: underline; }
+  .project-last-content { display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
 
-  /* AMADEUS */
-  .amadeus-body { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
-  .amadeus-col { padding: 3rem; }
-  .amadeus-col:first-child { border-right: 1px solid var(--gray-light); }
-  .amadeus-col-title { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 2rem; }
-  .amadeus-items { display: flex; flex-direction: column; gap: 1.5rem; }
-  .amadeus-item { display: grid; grid-template-columns: 20px 1fr; gap: 1rem; align-items: start; }
-  .amadeus-dash { font-size: 14px; color: var(--primary); font-weight: 700; line-height: 1.6; }
-  .amadeus-text { font-size: 15px; font-weight: 300; line-height: 1.6; color: #333; }
-  .amadeus-closing { padding: 4rem 3rem; border-top: 1px solid var(--gray-light); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 3rem; }
-  .amadeus-quote { font-family: 'Epilogue', sans-serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 400; font-style: italic; line-height: 1.5; letter-spacing: -0.01em; max-width: 600px; }
-  .amadeus-quote span { color: var(--primary); font-style: normal; font-weight: 700; }
-  .amadeus-sig-name { font-family: 'Epilogue', sans-serif; font-size: 1rem; font-weight: 700; text-align: right; }
-  .amadeus-sig-url { font-size: 13px; color: var(--gray); margin-top: 4px; text-align: right; }
-
-
-  html, body { height: 100%; }
-  body { scroll-snap-type: y mandatory; overflow-y: auto; }
-  section { min-height: 100vh; scroll-snap-align: start; }
-  .hero, #experience, #ai-practice, #projects, #amadeus { min-height: 100vh; display: block; }
-  .hero { display: grid; align-items: stretch; }
-  .hero-content { min-height: calc(100vh - 120px); }
-  .section-header { position: sticky; top: 0; backdrop-filter: blur(13px); background: rgba(255,255,255,0.9); z-index: 5; }
-
-  footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+  footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gray-light); }
   .footer-left { font-size: 13px; color: var(--gray); font-weight: 300; }
   .footer-links { display: flex; gap: 2rem; }
   .footer-link { font-size: 13px; color: var(--gray); text-decoration: none; font-weight: 500; }
   .footer-link:hover { color: var(--black); }
 
   .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .fade.in { opacity: 1; transform: none; padding-bottom: 48px;}
+  .fade.in { opacity: 1; transform: none; }
 
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
   .hero-index { animation: fadeUp 0.6s ease both; }
@@ -165,45 +142,31 @@
   .hero-bottom { animation: fadeUp 0.6s 0.2s ease both; }
 
   @media (max-width: 768px) {
-    body { font-family: 'Epilogue', sans-serif; background: var(--white); color: var(--black); }
-  
-
-  
-  
-
     #hero { padding: 0 1.5rem; }
-    .hero-content { padding-top: 6rem; padding-bottom: 2.5rem; }
+    .hero-content { padding-top: 3rem; padding-bottom: 2.5rem; }
     .hero-bottom { grid-template-columns: 1fr 1fr; }
     .hero-stat { padding: 1rem 0; }
     .hero-stat:nth-child(2) { border-right: none; }
     .hero-stat:nth-child(3) { border-right: 1px solid var(--gray-light); border-top: 1px solid var(--gray-light); }
-    .hero-stat:nth-child(4) { border-top: 1px solid var(--gray-light); }
+    .hero-stat:nth-child(4) { border-top: 1px solid var(--gray-light); padding-left: 13px; }
 
     .section-header { padding: 1.25rem 1.5rem; grid-template-columns: 60px 1fr; }
     .section-title { font-size: 1.4rem; }
 
     .exp-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.5rem; }
     .exp-year { padding-top: 0; }
-    .exp-img { height: 200px; }
+    .exp-img { height: auto; }
     .exp-company { font-size: 1.3rem; }
     .exp-desc { font-size: 14px; max-width: 100%; }
 
-    .ai-body { grid-template-columns: 1fr; }
-    .ai-left { padding: 2rem 1.5rem; border-right: none; border-bottom: 1px solid var(--gray-light); }
-    .ai-right { padding: 2rem 1.5rem; }
-    .terminal { font-size: 16px; }
+    .ai-body { grid-template-columns: 1fr; min-height: auto; }
+    .ai-left { padding: 2.5rem 1.5rem; border-right: none; border-bottom: 1px solid var(--gray-light); gap: 2.5rem; }
+    .ai-right { padding: 2.5rem 1.5rem; }
+    .terminal { font-size: 12px; }
 
     .projects-grid { grid-template-columns: 1fr; }
-    .project { border-right: none; padding: 2rem 1.5rem; }
-    .project:last-child { grid-column: 1; display: flex; flex-direction: column; gap: 1rem; }
-    .project:last-child .project-img { margin-bottom: 0; }
-
-    .amadeus-body { grid-template-columns: 1fr; }
-    .amadeus-col { padding: 2rem 1.5rem; }
-    .amadeus-col:first-child { border-right: none; border-bottom: 1px solid var(--gray-light); }
-    .amadeus-text { font-size: 14px; }
-    .amadeus-closing { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 1.5rem; }
-    .amadeus-sig-name, .amadeus-sig-url { text-align: left; }
+    .project { border-right: none; padding: 2.5rem 1.5rem; gap: 1.25rem; }
+    .project:last-child { grid-column: 1; display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem 1.5rem; }
 
     footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; align-items: flex-start; }
     .footer-links { flex-wrap: wrap; gap: 1rem; }
@@ -212,14 +175,10 @@
 </head>
 <body>
 
-
-
-
-
 <section id="hero">
   <div class="hero-content">
     <div class="hero-index">Amadeus Presentation</div>
-    <h1 class="hero-h1">Senior designer<br> focused on<br> <span class="italic">AI-powered products.</span></h1>
+    <h1 class="hero-h1">Senior designer<br>focused on<br><span class="italic">AI-powered products.</span></h1>
   </div>
   <div class="hero-bottom">
     <div class="hero-stat"><div class="hero-stat-label">Experience</div><div class="hero-stat-value">10+ years</div></div>
@@ -235,10 +194,10 @@
     <div class="section-title">Experience</div>
   </div>
 
-  <div class="exp-row fade">
+  <a class="exp-row fade" href="https://www.robertosalodini.com/portfolio/hostelworld/" target="_blank" style="text-decoration:none;color:inherit;">
     <div class="exp-year">2021 - 2024</div>
     <div>
-      <div class="exp-company">Hostelworld</div><a class="project-link" href="https://hostelworld.com" target="_blank" rel="noreferrer">Visit →</a>
+      <div class="exp-company">Hostelworld</div>
       <div class="exp-role">Lead Mobile Designer · Dublin & Lisbon</div>
       <div class="exp-desc">Owned the full redesign of iOS and Android apps and launched social features globally. Worked daily with 20+ developers and 4 PMs across experimentation, design systems and shipping.</div>
       <div class="exp-tags">
@@ -249,12 +208,12 @@
       </div>
     </div>
     <div class="exp-img"><img src="assets/image-1.png" alt="Hostelworld" /></div>
-  </div>
+  </a>
 
-  <div class="exp-row fade">
+  <a class="exp-row fade" href="https://www.robertosalodini.com/portfolio/iseechange/" target="_blank" style="text-decoration:none;color:inherit;">
     <div class="exp-year">2024 - now</div>
     <div>
-      <div class="exp-company">ISeeChange</div><a class="project-link" href="https://partners.iseechange.com" target="_blank" rel="noreferrer">Visit →</a>
+      <div class="exp-company">ISeeChange</div>
       <div class="exp-role">Lead Product Designer · US Remote</div>
       <div class="exp-desc">Worked alongside data scientists to design how AI-generated climate insights reach real users. B2B and B2C surfaces, from discovery to handoff.</div>
       <div class="exp-tags">
@@ -264,7 +223,7 @@
       </div>
     </div>
     <div class="exp-img"><img src="assets/image-2.png" alt="ISeeChange" /></div>
-  </div>
+  </a>
 
   <div class="exp-row fade">
     <div class="exp-year">2025 - now</div>
@@ -278,7 +237,7 @@
         <span class="tag">Travel</span>
       </div>
     </div>
-    <div class="exp-img"><img src="assets/image-3.jpg" alt="screenshot" /></div>
+    <div class="exp-img"><img src="assets/image-3.jpg" alt="Tripcited" /></div>
   </div>
 
 </section>
@@ -286,41 +245,47 @@
 <section id="ai">
   <div class="section-header">
     <div class="section-num">02</div>
-    <div class="section-title">AI Skills</div>
+    <div class="section-title">AI Experience</div>
   </div>
   <div class="ai-body">
     <div class="ai-left">
-      <div class="fade">
-        <div class="ai-step-num">Research + ideation</div>
-        <div class="ai-step-title">ChatGPT, Gemini, Perplexity</div>
-        <div class="ai-step-desc">Using AI daily to test assumptions, spot edge cases, and speed up research, especially when working solo.</div>
+      <div class="ai-step fade">
+        <div class="ai-step-num">Research & ideation</div>
+        <div class="ai-step-title">From brief to structured insight in minutes</div>
+        <div class="ai-step-subtitle">ChatGPT · Gemini · Perplexity</div>
+        <div class="ai-step-desc">I use AI daily to pressure-test assumptions, map edge cases and run competitive analysis — work that used to take days. Especially valuable when working as a solo designer without a dedicated research team.</div>
       </div>
-      <div class="fade">
+      <div class="ai-step fade">
         <div class="ai-step-num">Design to code</div>
-        <div class="ai-step-title">Cursor Agents + Claude Code</div>
-        <div class="ai-step-desc">Comfortable in the terminal, shipping PRs, and deploying via Vercel. Worked on live production codebases as the sole designer.</div>
+        <div class="ai-step-title">Shipping from Figma to production</div>
+        <div class="ai-step-subtitle">Cursor Agents · Claude Code · Vercel</div>
+        <div class="ai-step-desc">I work directly in the terminal — writing commits, pushing PRs and deploying to Vercel. Over the past year I've shipped on live production codebases alongside dev teams, as the sole designer.</div>
       </div>
-      <div class="fade">
+      <div class="ai-step fade">
         <div class="ai-step-num">MCP integration</div>
-        <div class="ai-step-title">Figma → Claude Code → Package</div>
-        <div class="ai-step-desc">Connected Figma to Claude Code via the Figma MCP server. Claude generated a token library ready for Next.js.</div>
+        <div class="ai-step-title">Design system as a live data source</div>
+        <div class="ai-step-subtitle">Figma MCP · Claude Code · Next.js</div>
+        <div class="ai-step-desc">I connected Figma to Claude Code via the Figma MCP server. In one session it read the ISeeChange design system live and generated a complete, importable token package — no screenshots, no copy-paste.</div>
       </div>
     </div>
     <div class="ai-right">
-      <div class="ai-terminal-label">claude mcp list</div>
+      <div class="ai-terminal-label">Live session output</div>
       <div class="terminal">
         <span class="d">$ </span><span class="o">claude mcp list</span><br><br>
         <span class="d">plugin:figma:</span><br>
         <span class="g">https://mcp.figma.com/mcp</span><br>
-        <span class="g">✓ Connected</span><br><br>
+        <span class="g">✓ Connected</span>
+      </div>
+      <hr class="terminal-divider">
+      <div class="terminal">
         <span class="d">Generated in one session:</span><br><br>
         <span class="w">iseechange-design-system/</span><br>
-        <span class="d">├── tokens/</span><span class="g">  39 CSS vars</span><br>
-        <span class="d">├── assets/</span><span class="g">  UI primitives</span><br>
-        <span class="d">├── components/</span><span class="g">  page level</span><br>
-        <span class="d">└── tokens.ts</span><span class="g">  TS constants</span>
+        <span class="d">├── tokens/&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="g">39 CSS custom props</span><br>
+        <span class="d">├── assets/&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="g">buttons, inputs, pills</span><br>
+        <span class="d">├── components/ </span><span class="g">nav, filters, modals</span><br>
+        <span class="d">└── tokens.ts&nbsp;&nbsp; </span><span class="g">TypeScript constants</span>
       </div>
-      
+      <p class="terminal-note">Extracted directly from the live Figma file via MCP — colors, typography, shadows and component specs. No manual handoff.</p>
     </div>
   </div>
 </section>
@@ -332,36 +297,39 @@
   </div>
   <div class="projects-grid">
 
-    <div class="project fade">
+    <a class="project fade" href="https://news-verifier-mu.vercel.app/" target="_blank">
       <div class="project-img"><img src="assets/image-4.jpg" alt="Verify News" /></div>
-      <div class="project-name">Verify News</div>
-      <div class="project-desc">AI-powered news credibility tool. Built solo from design to deployment using Llama 3.0.</div>
-      <div class="project-footer">
-        <div class="exp-tags"><span class="tag">Llama 3</span><span class="tag">Next.js</span></div>
-        <a class="project-link" href="https://news-verifier-mu.vercel.app/" target="_blank">Visit →</a>
+      <div class="project-content">
+        <div class="project-name">Verify News</div>
+        <div class="project-desc">Paste any news URL and Llama 3 analyses it for credibility signals, source reliability and potential bias. Built solo from Figma to live on Vercel over a weekend.</div>
+        <div class="project-footer">
+          <div class="exp-tags"><span class="tag">Llama 3</span><span class="tag">Next.js</span></div>
+          <span class="project-link">Visit →</span>
+        </div>
       </div>
-    </div>
+    </a>
 
-    <div class="project fade">
+    <a class="project fade" href="https://roast-my-watchlist.vercel.app/" target="_blank">
       <div class="project-img"><img src="assets/image-5.jpg" alt="Roast My Watchlist" /></div>
-      <div class="project-name">Roast My Watchlist</div>
-      <div class="project-desc">Movie watchlist roasting app using Mistral AI and TMDB. Design to production in a weekend.</div>
-      <div class="project-footer">
-        <div class="exp-tags"><span class="tag">Mistral AI</span><span class="tag">TMDB API</span></div>
-        <a class="project-link" href="https://roast-my-watchlist.vercel.app/" target="_blank">Visit →</a>
+      <div class="project-content">
+        <div class="project-name">Roast My Watchlist</div>
+        <div class="project-desc">Submit your movie watchlist and get a brutal AI critique of your taste. Built with Mistral AI and the TMDB API. Designed and shipped independently in 48 hours.</div>
+        <div class="project-footer">
+          <div class="exp-tags"><span class="tag">Mistral AI</span><span class="tag">TMDB API</span></div>
+          <span class="project-link">Visit →</span>
+        </div>
       </div>
-    </div>
+    </a>
 
     <div class="project fade">
       <div>
-        <div class="project-img" style="margin-bottom:0;"><img src="assets/image-6.jpg" alt="ISeeChange Design System" /></div>
+        <div class="project-img"><img src="assets/image-6.jpg" alt="ISeeChange Design System" /></div>
       </div>
-      <div style="display:flex;flex-direction:column;justify-content:center;gap:1rem;">
+      <div class="project-last-content">
         <div class="project-name">ISeeChange Design System</div>
-        <div class="project-desc">Full design token library extracted from Figma via MCP in a single Claude Code session. Colors, typography, shadows, components - npm-ready.</div>
+        <div class="project-desc">Connected Figma MCP to Claude Code and extracted the full ISeeChange design system in one session — colors, typography, shadows and components structured as an npm-ready TypeScript package.</div>
         <div class="project-footer">
           <div class="exp-tags"><span class="tag">Figma MCP</span><span class="tag">Claude Code</span><span class="tag">TypeScript</span></div>
-          
         </div>
       </div>
     </div>
@@ -369,10 +337,8 @@
   </div>
 </section>
 
-
-
 <footer>
-  <div class="footer-left">Roberto Salodini · </div>
+  <div class="footer-left">Roberto Salodini</div>
   <div class="footer-links">
     <a class="footer-link" href="https://robertosalodini.com" target="_blank">Portfolio</a>
     <a class="footer-link" href="https://github.com/robrego" target="_blank">GitHub</a>
@@ -382,15 +348,6 @@
 </footer>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('big'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
-  });
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.1 });
