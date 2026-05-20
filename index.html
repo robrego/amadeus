@@ -101,28 +101,28 @@
   .terminal-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0; }
   .terminal-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 1.5rem; line-height: 1.6; font-family: 'Epilogue', sans-serif; }
 
-  /* PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .projects-grid { display: flex; flex-direction: column; }
   .project {
     padding: 3rem;
-    border-right: 1px solid var(--gray-light);
     border-bottom: 1px solid var(--gray-light);
     transition: background 0.2s;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: 120px 1fr 380px;
+    gap: 3rem;
+    align-items: start;
     text-decoration: none;
     color: inherit;
   }
-  .project:nth-child(2n) { border-right: none; }
-  .project:last-child { border-bottom: none; border-right: none; grid-column: 1/-1; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 4rem 3rem; }
+  .project:last-child { border-bottom: none; }
   .project:hover { background: #f9f9f9; }
   .project-img { width: 100%; height: auto; border-radius: 10px; background: var(--gray-light); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gray); overflow: hidden; }
   .project-img img { width: 100%; height: auto; object-fit: contain; border-radius: 10px; }
-  .project-content { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
-  .project-name { font-family: 'Epilogue', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+  .project-num { font-size: 13px; color: var(--gray); padding-top: 6px; }
+  .project-content { display: flex; flex-direction: column; gap: 0.75rem; }
+  .project-name { font-family: 'Epilogue', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+  .project-meta { font-size: 14px; color: var(--gray); font-weight: 400; }
   .project-desc { font-size: 15px; color: var(--gray); line-height: 1.75; font-weight: 300; }
-  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.5rem; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
   .project-link { font-size: 14px; font-weight: 500; color: var(--primary); text-decoration: none; }
   .project-link:hover { text-decoration: underline; }
   .project-last-content { display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
@@ -164,9 +164,10 @@
     .ai-right { padding: 2.5rem 1.5rem; }
     .terminal { font-size: 12px; }
 
-    .projects-grid { grid-template-columns: 1fr; }
-    .project { border-right: none; padding: 2.5rem 1.5rem; gap: 1.25rem; }
-    .project:last-child { grid-column: 1; display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem 1.5rem; }
+    .projects-grid { display: flex; flex-direction: column; }
+    .project { grid-template-columns: 1fr; gap: 1.25rem; padding: 2.5rem 1.5rem; }
+    .project-num { display: none; }
+    .project-img { order: -1; }
 
     footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; align-items: flex-start; }
     .footer-links { flex-wrap: wrap; gap: 1rem; }
@@ -199,7 +200,7 @@
     <div>
       <div class="exp-company">Hostelworld</div>
       <div class="exp-role">Lead Mobile Designer, Dublin & Lisbon</div>
-      <div class="exp-desc">Owned the full redesign of iOS and Android apps and launched social features globally. Worked daily with 20+ developers and 4 PMs across experimentation, design systems and shipping.</div>
+      <div class="exp-desc">Owned the full redesign of iOS and Android apps and launched social features globally.<br><br>Worked daily with 20+ developers and 4 PMs across experimentation, design systems and shipping.</div>
       <div class="exp-tags">
         <span class="tag">iOS & Android</span>
         <span class="tag">Design Systems</span>
@@ -215,7 +216,7 @@
     <div>
       <div class="exp-company">ISeeChange</div>
       <div class="exp-role">Lead Product Designer, US Remote</div>
-      <div class="exp-desc">Worked alongside data scientists to design how AI-generated climate insights reach real users. B2B and B2C surfaces, from discovery to handoff.</div>
+      <div class="exp-desc">Worked alongside data scientists to design how AI-generated climate insights reach real users.<br><br>B2B and B2C surfaces, from discovery to handoff.</div>
       <div class="exp-tags">
         <span class="tag">AI Interfaces</span>
         <span class="tag">Data Visualisation</span>
@@ -253,19 +254,19 @@
         <div class="ai-step-num">Research & ideation</div>
         <div class="ai-step-title">From brief to structured insight in minutes</div>
         <div class="ai-step-subtitle">ChatGPT, Gemini, Perplexity</div>
-        <div class="ai-step-desc">I use AI daily to pressure-test assumptions, map edge cases and run competitive analysis. Especially valuable when working as a solo designer without a dedicated research team.</div>
+        <div class="ai-step-desc">I use AI daily to pressure-test assumptions, map edge cases and run competitive analysis.<br><br>Especially valuable when working as a solo designer without a dedicated research team.</div>
       </div>
       <div class="ai-step fade">
         <div class="ai-step-num">Design to code</div>
         <div class="ai-step-title">Shipping from Figma to production</div>
         <div class="ai-step-subtitle">Cursor Agents, Claude Code, Vercel</div>
-        <div class="ai-step-desc">I work directly in the terminal, writing commits, pushing PRs and deploying to Vercel. Over the past year I've shipped on live production codebases alongside dev teams.</div>
+        <div class="ai-step-desc">I work directly in the terminal, writing commits, pushing PRs and deploying to Vercel.<br><br>Over the past year I've shipped on live production codebases alongside dev teams.</div>
       </div>
       <div class="ai-step fade">
         <div class="ai-step-num">MCP integration</div>
         <div class="ai-step-title">Design system as a live data source</div>
         <div class="ai-step-subtitle">Figma MCP, Claude Code, Next.js</div>
-        <div class="ai-step-desc">I connected Figma to Claude Code via the Figma MCP server. It read the ISeeChange design system live and generated a complete, importable token package, no screenshots, no copy-paste.</div>
+        <div class="ai-step-desc">I connected Figma to Claude Code via the Figma MCP server.<br><br>It read the ISeeChange design system live and generated a complete, importable token package, no screenshots, no copy-paste.</div>
       </div>
     </div>
     <div class="ai-right">
@@ -298,40 +299,44 @@
   <div class="projects-grid">
 
     <a class="project fade" href="https://news-verifier-mu.vercel.app/" target="_blank">
-      <div class="project-img"><img src="assets/image-4.jpg" alt="Verify News" /></div>
+      <div class="project-num">01</div>
       <div class="project-content">
         <div class="project-name">Verify News</div>
-        <div class="project-desc">Paste any news URL and Llama 3 analyses it for credibility signals, source reliability and potential bias. Built solo from Figma to live on Vercel.</div>
+        <div class="project-meta">Llama 3, Next.js, Vercel</div>
+        <div class="project-desc">Understanding how information gets distorted is directly relevant to designing AI outputs people can trust.<br><br>Built to explore how AI can help users make better decisions faster.</div>
         <div class="project-footer">
           <div class="exp-tags"><span class="tag">Llama 3</span><span class="tag">Next.js</span></div>
           <span class="project-link">Visit →</span>
         </div>
       </div>
+      <div class="project-img"><img src="assets/image-4.jpg" alt="Verify News" /></div>
     </a>
 
     <a class="project fade" href="https://roast-my-watchlist.vercel.app/" target="_blank">
-      <div class="project-img"><img src="assets/image-5.jpg" alt="Roast My Watchlist" /></div>
+      <div class="project-num">02</div>
       <div class="project-content">
         <div class="project-name">Roast My Watchlist</div>
-        <div class="project-desc">Submit your movie watchlist and get a brutal AI critique of your taste. Built with Mistral AI and the TMDB API. Designed and shipped independently in 48 hours.</div>
+        <div class="project-meta">Mistral AI, TMDB API, Vercel</div>
+        <div class="project-desc">A fast end-to-end build showing how I go from idea to shipped product using AI APIs.<br><br>Design, backend and deployment handled independently.</div>
         <div class="project-footer">
           <div class="exp-tags"><span class="tag">Mistral AI</span><span class="tag">TMDB API</span></div>
           <span class="project-link">Visit →</span>
         </div>
       </div>
+      <div class="project-img"><img src="assets/image-5.jpg" alt="Roast My Watchlist" /></div>
     </a>
 
     <div class="project fade">
-      <div>
-        <div class="project-img"><img src="assets/image-6.jpg" alt="ISeeChange Design System" /></div>
-      </div>
-      <div class="project-last-content">
+      <div class="project-num">03</div>
+      <div class="project-content">
         <div class="project-name">ISeeChange Design System</div>
-        <div class="project-desc">Connected Figma MCP to Claude Code and extracted the full ISeeChange design system. Colors, typography, shadows and components structured as an npm-ready TypeScript package.</div>
+        <div class="project-meta">Figma MCP, Claude Code, TypeScript</div>
+        <div class="project-desc">Connecting a live design source to AI tooling to standardise brand rules and generate structured output.<br><br>Colors, typography, shadows and components, npm-ready.</div>
         <div class="project-footer">
           <div class="exp-tags"><span class="tag">Figma MCP</span><span class="tag">Claude Code</span><span class="tag">TypeScript</span></div>
         </div>
       </div>
+      <div class="project-img"><img src="assets/image-6.jpg" alt="ISeeChange Design System" /></div>
     </div>
 
   </div>
