@@ -52,23 +52,24 @@
 
   /* SECTIONS */
   section { border-bottom: 1px solid var(--gray-light); }
-  .section-header { display: grid; grid-template-columns: 120px 1fr; border-bottom: 1px solid var(--gray-light); padding: 1.5rem 3rem; align-items: center; position: sticky; top: 0; backdrop-filter: blur(13px); background: rgba(255,255,255,0.9); z-index: 5; }
+  .section-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gray-light); padding: 1.5rem 3rem; position: sticky; top: 0; backdrop-filter: blur(13px); background: rgba(255,255,255,0.9); z-index: 5; }
   .section-num { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
   .section-title { font-family: 'Epilogue', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
 
   /* EXPERIENCE */
   .exp-row {
     display: grid;
-    grid-template-columns: 120px 1fr 380px;
+    grid-template-columns: 1fr 380px;
     gap: 3rem;
-    padding: 3rem;
+    padding: 4rem 3rem;
     border-bottom: 1px solid var(--gray-light);
     align-items: start;
     transition: background 0.2s;
     text-decoration: none;
     color: inherit;
-    display: grid;
   }
+  .exp-main { display: flex; flex-direction: column; }
+  .exp-year { font-size: 13px; color: var(--gray); margin-top: 1.25rem; order: 10; }
   .exp-row:last-child { border-bottom: none; }
   .exp-row:hover { background: #f9f9f9; }
   .exp-year { font-size: 13px; color: var(--gray); padding-top: 6px; }
@@ -85,15 +86,15 @@
 
   /* AI */
   .ai-body { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 80vh; }
-  .ai-left { padding: 4rem; border-right: 1px solid var(--gray-light); display: flex; flex-direction: column; justify-content: center; gap: 3rem; }
+  .ai-left { padding: 4rem 4rem 4rem 3rem; border-right: 1px solid var(--gray-light); display: flex; flex-direction: column; justify-content: center; gap: 3.5rem; }
   .ai-right { padding: 4rem; background: var(--black); color: var(--white); display: flex; flex-direction: column; justify-content: center; }
-  .ai-step { display: flex; flex-direction: column; gap: 0.4rem; }
-  .ai-step-num { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: var(--primary); text-transform: uppercase; }
-  .ai-step-title { font-family: 'Epilogue', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--black); }
-  .ai-step-subtitle { font-size: 13px; color: var(--gray); font-weight: 500; margin-bottom: 0.25rem; }
-  .ai-step-desc { font-size: 15px; color: var(--gray); line-height: 1.75; font-weight: 300; }
+  .ai-step { display: flex; flex-direction: column; gap: 0; }
+  .ai-step-num { font-family: 'Epilogue', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 0.3rem; text-transform: none; }
+  .ai-step-title { font-family: 'Epilogue', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--black); margin-bottom: 0.3rem; }
+  .ai-step-subtitle { font-size: 13px; color: var(--gray); font-weight: 500; margin-bottom: 1rem; }
+  .ai-step-desc { font-size: 15px; color: var(--gray); line-height: 1.75; font-weight: 300; max-width: 480px; }
   .ai-terminal-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 2rem; }
-  .terminal { font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.9; color: rgba(255,255,255,0.55); }
+  .terminal { font-family: 'Courier New', monospace; font-size: 15px; line-height: 2; color: rgba(255,255,255,0.55); }
   .terminal .g { color: #46d1b4; }
   .terminal .o { color: #f7a45a; }
   .terminal .w { color: rgba(255,255,255,0.9); }
@@ -103,11 +104,11 @@
 
   .projects-grid { display: flex; flex-direction: column; }
   .project {
-    padding: 3rem;
+    padding: 4rem 3rem;
     border-bottom: 1px solid var(--gray-light);
     transition: background 0.2s;
     display: grid;
-    grid-template-columns: 120px 1fr 380px;
+    grid-template-columns: 1fr 380px;
     gap: 3rem;
     align-items: start;
     text-decoration: none;
@@ -118,11 +119,10 @@
   .project-img { width: 100%; height: auto; border-radius: 10px; background: var(--gray-light); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gray); overflow: hidden; }
   .project-img img { width: 100%; height: auto; object-fit: contain; border-radius: 10px; }
   .project-num { font-size: 13px; color: var(--gray); padding-top: 6px; }
-  .project-content { display: flex; flex-direction: column; gap: 0.75rem; }
-  .project-name { font-family: 'Epilogue', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
-  .project-meta { font-size: 14px; color: var(--gray); font-weight: 400; }
+  .project-content { display: flex; flex-direction: column; gap: 0; max-width: 520px; }
+  .project-name { font-family: 'Epilogue', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
   .project-desc { font-size: 15px; color: var(--gray); line-height: 1.75; font-weight: 300; }
-  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; }
   .project-link { font-size: 14px; font-weight: 500; color: var(--primary); text-decoration: none; }
   .project-link:hover { text-decoration: underline; }
   .project-last-content { display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
@@ -150,7 +150,7 @@
     .hero-stat:nth-child(3) { border-right: 1px solid var(--gray-light); border-top: 1px solid var(--gray-light); }
     .hero-stat:nth-child(4) { border-top: 1px solid var(--gray-light); padding-left: 13px; }
 
-    .section-header { padding: 1.25rem 1.5rem; grid-template-columns: 60px 1fr; }
+    .section-header { padding: 1.25rem 1.5rem; }
     .section-title { font-size: 1.4rem; }
 
     .exp-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.5rem; }
@@ -191,13 +191,12 @@
 
 <section id="experience">
   <div class="section-header">
-    <div class="section-num">01</div>
     <div class="section-title">Experience</div>
+    <div class="section-num">01</div>
   </div>
 
   <a class="exp-row fade" href="https://www.robertosalodini.com/portfolio/hostelworld/" target="_blank" style="text-decoration:none;color:inherit;">
-    <div class="exp-year">2021 - 2024</div>
-    <div>
+    <div class="exp-main">
       <div class="exp-company">Hostelworld</div>
       <div class="exp-role">Lead Mobile Designer, Dublin & Lisbon</div>
       <div class="exp-desc">A global online travel platform connecting millions of travelers with hostel accommodations and social experiences worldwide.<br><br>Worked daily with 20+ developers and 4 PMs across experimentation, design systems and shipping.</div>
@@ -207,13 +206,13 @@
         <span class="tag">Travel Booking</span>
         <span class="tag red">M+ downloads</span>
       </div>
+      <div class="exp-year">2021 - 2024</div>
     </div>
     <div class="exp-img"><img src="assets/image-1.png" alt="Hostelworld" /></div>
   </a>
 
   <a class="exp-row fade" href="https://www.robertosalodini.com/portfolio/iseechange/" target="_blank" style="text-decoration:none;color:inherit;">
-    <div class="exp-year">2024 - now</div>
-    <div>
+    <div class="exp-main">
       <div class="exp-company">ISeeChange</div>
       <div class="exp-role">Lead Product Designer, US Remote</div>
       <div class="exp-desc">A climate resilience platform helping cities and communities track, report and analyse environmental impacts.<br><br>Worked alongside data scientists to design how AI-generated climate insights reach real users.</div>
@@ -222,13 +221,13 @@
         <span class="tag">Data Visualisation</span>
         <span class="tag">Figma MCP</span>
       </div>
+      <div class="exp-year">2024 - now</div>
     </div>
     <div class="exp-img"><img src="assets/image-2.png" alt="ISeeChange" /></div>
   </a>
 
   <div class="exp-row fade">
-    <div class="exp-year">2025 - now</div>
-    <div>
+    <div class="exp-main">
       <div class="exp-company">Tripcited</div>
       <div class="exp-role">Product Designer, Toptal, Remote</div>
       <div class="exp-desc">Solo designer on an AI travel planning product that pulls destinations from blogs, articles and maps into smart itineraries.</div>
@@ -237,6 +236,7 @@
         <span class="tag">Maps UX</span>
         <span class="tag">Travel</span>
       </div>
+      <div class="exp-year">2025 - now</div>
     </div>
     <div class="exp-img"><img src="assets/image-3.jpg" alt="Tripcited" /></div>
   </div>
@@ -245,26 +245,23 @@
 
 <section id="ai">
   <div class="section-header">
-    <div class="section-num">02</div>
     <div class="section-title">AI Experience</div>
+    <div class="section-num">02</div>
   </div>
   <div class="ai-body">
     <div class="ai-left">
       <div class="ai-step fade">
-        <div class="ai-step-num">Research & ideation</div>
-        <div class="ai-step-title">From brief to structured insight</div>
+        <div class="ai-step-num">Research & Ideation</div>
         <div class="ai-step-subtitle">ChatGPT, Gemini, Perplexity</div>
         <div class="ai-step-desc">I use AI daily to pressure-test assumptions, map edge cases and run competitive analysis.<br><br>Especially valuable when working as a solo designer without a dedicated research team.</div>
       </div>
       <div class="ai-step fade">
-        <div class="ai-step-num">Design to code</div>
-        <div class="ai-step-title">Shipping from Figma to production</div>
+        <div class="ai-step-num">Design to Code</div>
         <div class="ai-step-subtitle">Cursor Agents, Claude Code, Vercel</div>
         <div class="ai-step-desc">I work directly in the terminal, writing commits, pushing PRs and deploying to Vercel.<br><br>Over the past year I've shipped on live production codebases alongside dev teams.</div>
       </div>
       <div class="ai-step fade">
-        <div class="ai-step-num">MCP integration</div>
-        <div class="ai-step-title">Design system as a data source</div>
+        <div class="ai-step-num">MCP Integration</div>
         <div class="ai-step-subtitle">Figma MCP, Claude Code, Next.js</div>
         <div class="ai-step-desc">I connected Figma to Claude Code via the Figma MCP server.<br><br>It read the ISeeChange design system live and generated a complete, importable token package, no screenshots, no copy-paste.</div>
       </div>
@@ -286,20 +283,19 @@
         <span class="d">├── components/ </span><span class="g">nav, filters, modals</span><br>
         <span class="d">└── tokens.ts&nbsp;&nbsp; </span><span class="g">TypeScript constants</span>
       </div>
-      <p class="terminal-note">Extracted directly via MCP. Colors, typography, shadows and component specs. No manual handoff.</p>
+      <p class="terminal-note">Extracted directly from the live Figma file via MCP. Colors, typography, shadows and component specs. No manual handoff.</p>
     </div>
   </div>
 </section>
 
 <section id="projects">
   <div class="section-header">
-    <div class="section-num">03</div>
     <div class="section-title">Side Projects</div>
+    <div class="section-num">03</div>
   </div>
   <div class="projects-grid">
 
     <a class="project fade" href="https://news-verifier-mu.vercel.app/" target="_blank">
-      <div class="project-num">01</div>
       <div class="project-content">
         <div class="project-name">Verify News</div>
         <div class="project-desc">Understanding how information gets distorted is directly relevant to designing AI outputs people can trust.<br><br>Built to explore how AI can help users make better decisions faster.</div>
@@ -312,7 +308,6 @@
     </a>
 
     <a class="project fade" href="https://roast-my-watchlist.vercel.app/" target="_blank">
-      <div class="project-num">02</div>
       <div class="project-content">
         <div class="project-name">Roast My Watchlist</div>
         <div class="project-desc">A fast end-to-end build showing how I go from idea to shipped product using AI APIs.<br><br>Design, backend and deployment handled independently.</div>
@@ -325,7 +320,6 @@
     </a>
 
     <div class="project fade">
-      <div class="project-num">03</div>
       <div class="project-content">
         <div class="project-name">ISeeChange Design System</div>
         <div class="project-desc">Connecting a live design source to AI tooling to standardise brand rules and generate structured output.<br><br>Colors, typography, shadows and components, npm-ready.</div>
